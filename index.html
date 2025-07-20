@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EG Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      direction: ltr;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #444;
+      padding: 1em;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .language-switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .container {
+      padding: 2em;
+    }
+    .product {
+      background: #fff;
+      padding: 1em;
+      margin-bottom: 1em;
+      border-radius: 5px;
+    }
+    .cart-button {
+      background: #28a745;
+      color: white;
+      padding: 0.5em;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">EG Store - Men’s Accessories</h1>
+  </header>
+  <nav>
+    <a href="#home" id="navHome">Home</a>
+    <a href="#shop" id="navShop">Shop</a>
+    <a href="#about" id="navAbout">About</a>
+    <a href="#contact" id="navContact">Contact</a>
+  </nav>
+
+  <div class="language-switch">
+    <button onclick="switchLang('en')">English</button>
+    <button onclick="switchLang('ar')">العربية</button>
+  </div>
+
+  <div class="container" id="home">
+    <h2 id="homeTitle">Welcome to EG Store</h2>
+    <p id="homeDesc">Find the best men’s accessories with style and elegance.</p>
+  </div>
+
+  <div class="container" id="shop">
+    <h2 id="shopTitle">Shop</h2>
+    <div class="product">
+      <h3 id="prod1">Leather Wallet</h3>
+      <p id="price1">Price: $25</p>
+      <button class="cart-button" onclick="alert('Added to cart')" id="cart1">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3 id="prod2">Men’s Watch</h3>
+      <p id="price2">Price: $80</p>
+      <button class="cart-button" onclick="alert('Added to cart')" id="cart2">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="container" id="about">
+    <h2 id="aboutTitle">About Us</h2>
+    <p id="aboutDesc">EG Store is your go-to place for modern and high-quality men’s accessories in Egypt and beyond.</p>
+  </div>
+
+  <div class="container" id="contact">
+    <h2 id="contactTitle">Contact Us</h2>
+    <p id="contactDesc">Email: info@egstore.com | Phone: +20 123 456 789</p>
+  </div>
+
+  <footer>
+    <p>© 2025 EG Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "EG Store - Men’s Accessories",
+        navHome: "Home",
+        navShop: "Shop",
+        navAbout: "About",
+        navContact: "Contact",
+        homeTitle: "Welcome to EG Store",
+        homeDesc: "Find the best men’s accessories with style and elegance.",
+        shopTitle: "Shop",
+        prod1: "Leather Wallet",
+        price1: "Price: $25",
+        cart1: "Add to Cart",
+        prod2: "Men’s Watch",
+        price2: "Price: $80",
+        cart2: "Add to Cart",
+        aboutTitle: "About Us",
+        aboutDesc: "EG Store is your go-to place for modern and high-quality men’s accessories in Egypt and beyond.",
+        contactTitle: "Contact Us",
+        contactDesc: "Email: info@egstore.com | Phone: +20 123 456 789"
+      },
+      ar: {
+        title: "متجر EG - إكسسوارات رجالية",
+        navHome: "الرئيسية",
+        navShop: "المتجر",
+        navAbout: "من نحن",
+        navContact: "اتصل بنا",
+        homeTitle: "مرحباً بكم في متجر EG",
+        homeDesc: "اكتشف أفضل الإكسسوارات الرجالية بأناقة وجودة.",
+        shopTitle: "المتجر",
+        prod1: "محفظة جلد",
+        price1: "السعر: 25 دولار",
+        cart1: "أضف إلى السلة",
+        prod2: "ساعة رجالية",
+        price2: "السعر: 80 دولار",
+        cart2: "أضف إلى السلة",
+        aboutTitle: "من نحن",
+        aboutDesc: "متجر EG هو وجهتك للحصول على أفضل الإكسسوارات الرجالية العصرية وعالية الجودة في مصر وخارجها.",
+        contactTitle: "اتصل بنا",
+        contactDesc: "البريد الإلكتروني: info@egstore.com | الهاتف: +20 123 456 789"
+      }
+    };
+
+    function switchLang(lang) {
+      document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+      for (const key in translations[lang]) {
+        const el = document.getElementById(key);
+        if (el) el.textContent = translations[lang][key];
+      }
+    }
+  </script>
+</body>
+</html>
